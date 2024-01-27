@@ -4,12 +4,22 @@ using UnityEngine;
 
 public class ManejadorGeneral : MonoBehaviour
 {
-    public GameObject canvasJuegoTerminado; 
+    public GameObject canvasJuegoTerminado, payaso;
+
+    void Start()
+    {
+        StartCoroutine(SpawnPayasoDelay());
+    }
+
+    IEnumerator SpawnPayasoDelay()
+    {
+        yield return new WaitForSeconds(10);
+        Instantiate(payaso, GameObject.Find("Inicio").transform.position, Quaternion.identity);
+    }
         
     public void TerminarJuego()
     {
         canvasJuegoTerminado.SetActive(true);
-        GameObject.Find("Player").GetComponent<MovimientoJugador>().puedeMover = false;
-        //GameObject.Find("Clown(Clone)").GetComponent<Payaso>().puedeMover = false;
+        GameObject.Find("Jugador").GetComponent<MovimientoJugador>().puedeMover = false;
     }
 }

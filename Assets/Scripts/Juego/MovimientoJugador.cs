@@ -108,7 +108,7 @@ public class MovimientoJugador : MonoBehaviour
     {
         if (col.CompareTag("Final"))
         {
-            GetComponent<FuncionesAuxiliares>().CambiarEscena("Nivel 2");
+            GameObject.Find("Manejador general").GetComponent<FuncionesAuxiliares>().CambiarEscena("Nivel 2");
         }
         if (col.CompareTag("Payaso"))
         {

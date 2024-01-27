@@ -9,13 +9,13 @@ public class Camara : MonoBehaviour
 
     void Start()
     {
-        jugador = GameObject.Find("Player");
+        jugador = GameObject.Find("Jugador");
     }
 
     void LateUpdate()
     {
         transform.position = new Vector3(jugador.transform.position.x, jugador.transform.position.y, -10);
-        if (transform.position.x < limiteIzquierda)
+        /*if (transform.position.x < limiteIzquierda)
         {
             transform.position = new Vector3(limiteIzquierda, jugador.transform.position.y, -10);
         }
@@ -30,6 +30,6 @@ public class Camara : MonoBehaviour
         if (transform.position.y < limiteAbajo)
         {
             transform.position = new Vector3(jugador.transform.position.x, limiteAbajo, -10);
-        }
+        }*/
     }
 }
