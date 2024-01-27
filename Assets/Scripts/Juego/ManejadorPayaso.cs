@@ -25,27 +25,27 @@ public class ManejadorPayaso : MonoBehaviour
     void AparecerPayaso()
     {
         //obtengo los tiles que se ven en la camara
-        GameObject[] arrayTilesEnCamara = GameObject.Find("TileMap").GetComponent<TileMap>().ObtenerTilesEnCamara();
+        /*GameObject[] arrayTilesEnCamara = GameObject.Find("TileMap").GetComponent<TileMap>().ObtenerTilesEnCamara();
         int random = Random.Range(1, 5);
         if (random == 1) //arriba izquierda
         {
             GameObject payasoInstanciado = Instantiate(payaso, arrayTilesEnCamara[39].transform.position, Quaternion.identity);
-            payasoInstanciado.GetComponent<Payaso>().SetOrigen(1);
+            //payasoInstanciado.GetComponent<Payaso>().SetOrigen(1);
         }
         else if (random == 2) //arriba derecha
         {
             GameObject payasoInstanciado = Instantiate(payaso, arrayTilesEnCamara[4].transform.position, Quaternion.identity);
-            payasoInstanciado.GetComponent<Payaso>().SetOrigen(2);
+            //payasoInstanciado.GetComponent<Payaso>().SetOrigen(2);
         }
         else if (random == 3) //abajo izquierda
         {
             GameObject payasoInstanciado = Instantiate(payaso, arrayTilesEnCamara[35].transform.position, Quaternion.identity);
-            payasoInstanciado.GetComponent<Payaso>().SetOrigen(3);
+            //payasoInstanciado.GetComponent<Payaso>().SetOrigen(3);
         }
         else //abajo derecha
         {
             GameObject payasoInstanciado = Instantiate(payaso, arrayTilesEnCamara[0].transform.position, Quaternion.identity);
-            payasoInstanciado.GetComponent<Payaso>().SetOrigen(4);
-        }
+            //payasoInstanciado.GetComponent<Payaso>().SetOrigen(4);
+        }*/
     }
 }

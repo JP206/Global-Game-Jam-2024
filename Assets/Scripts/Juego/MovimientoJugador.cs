@@ -12,7 +12,7 @@ public class MovimientoJugador : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        transform.position = GameObject.Find("TileMap").GetComponent<TileMap>().GetCeldaInicio().transform.position;
+        transform.position = GameObject.Find("Inicio").transform.position;
     }
 
     void Update()
@@ -26,58 +26,55 @@ public class MovimientoJugador : MonoBehaviour
                 {
                     animator.SetTrigger("WalkSide");
                     caminando = true;
+                    animator.SetBool("RestSide", false);
                 }
             }
-
-            if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.RightArrow))
+            else if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.RightArrow))
             {
-                animator.SetTrigger("RestSide");
+                animator.SetBool("RestSide", true);
                 caminando = false;
             }
-
-            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+            else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
             {
                 MoverIzquierda();
                 if (!caminando)
                 {
                     animator.SetTrigger("WalkSide");
                     caminando = true;
+                    animator.SetBool("RestSide", false);
                 }
             }
-
-            if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.LeftArrow))
+            else if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.LeftArrow))
             {
                 animator.SetTrigger("RestSide");
                 caminando = false;
             }
-
-            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+            else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
             {
                 MoverArriba();
                 if (!caminando)
                 {
                     animator.SetTrigger("WalkBack");
                     caminando = true;
+                    animator.SetBool("RestSide", false);
                 }
             }
-
-            if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow))
+            else if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow))
             {
                 animator.SetTrigger("RestBack");
                 caminando = false;
             }
-
-            if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+            else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
             {
                 MoverAbajo();
                 if (!caminando)
                 {
                     animator.SetTrigger("WalkFront");
                     caminando = true;
+                    animator.SetBool("RestSide", false);
                 }
             }
-
-            if (Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.DownArrow))
+            else if (Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.DownArrow))
             {
                 animator.SetTrigger("RestFront");
                 caminando = false;
@@ -109,12 +106,9 @@ public class MovimientoJugador : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.CompareTag("Tile"))
+        if (col.CompareTag("Final"))
         {
-            if (col.GetComponent<Tile>().esFinal)
-            {
-                GetComponent<FuncionesAuxiliares>().CambiarEscena("Nivel 2");
-            }
+            GetComponent<FuncionesAuxiliares>().CambiarEscena("Nivel 2");
         }
         if (col.CompareTag("Payaso"))
         {

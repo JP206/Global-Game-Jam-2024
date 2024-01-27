@@ -10,6 +10,6 @@ public class ManejadorGeneral : MonoBehaviour
     {
         canvasJuegoTerminado.SetActive(true);
         GameObject.Find("Player").GetComponent<MovimientoJugador>().puedeMover = false;
-        GameObject.Find("Clown(Clone)").GetComponent<Payaso>().puedeMover = false;
+        //GameObject.Find("Clown(Clone)").GetComponent<Payaso>().puedeMover = false;
     }
 }

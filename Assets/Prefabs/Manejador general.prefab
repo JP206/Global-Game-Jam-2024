@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8701747160098579282}
   - component: {fileID: 711275544101581635}
+  - component: {fileID: 1270735205505350695}
   m_Layer: 0
   m_Name: Manejador general
   m_TagString: Untagged
@@ -45,3 +46,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   payaso: {fileID: 5563784591494330419, guid: 69ba2e49f495f37458eab9cd09b05f25, type: 3}
+--- !u!114 &1270735205505350695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422919703810918229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91c676f7531e28d4d90b8b35ed24f746, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasJuegoTerminado: {fileID: 0}
