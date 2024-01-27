@@ -27,4 +27,19 @@ public class TileMap : MonoBehaviour //chequea recursivamente los objetos en cam
             transform.GetChild(i).GetComponent<TileMap>().obtenerTilesEnCamara(lista);
         }
     }
+
+    public GameObject GetCeldaInicio()
+    {
+        for (int i = 0; i < 10; i++) //columnas
+        {
+            for (int j = 0; j < 10; j++) //filas
+            {
+                if (transform.GetChild(i).transform.GetChild(j).GetComponent<Tile>().esInicio)
+                {
+                    return transform.GetChild(i).transform.GetChild(j).gameObject;
+                }
+            }
+        }
+        return null;
+    } 
 }

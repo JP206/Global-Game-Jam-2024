@@ -6,11 +6,6 @@ public class ManejadorPayaso : MonoBehaviour
 {
     public GameObject payaso;
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -52,6 +47,5 @@ public class ManejadorPayaso : MonoBehaviour
             GameObject payasoInstanciado = Instantiate(payaso, arrayTilesEnCamara[0].transform.position, Quaternion.identity);
             payasoInstanciado.GetComponent<Payaso>().SetOrigen(4);
         }
-        print(random);
     }
 }

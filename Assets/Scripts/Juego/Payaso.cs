@@ -9,49 +9,53 @@ public class Payaso : MonoBehaviour
     [SerializeField] float velocidadMovimiento;
     bool caminandoX = false, caminandoY = false;
     Animator animator;
+    public bool puedeMover = true;
 
     void Start()
     {
         animator = GetComponent<Animator>();
         jugador = GameObject.Find("Player");
     }
-    
+
     void Update()
     {
-        //primero se alinea en x y despues en y
-        if (transform.position.x != jugador.transform.position.x)
+        if (puedeMover)
         {
-            caminandoY = false;
-            transform.position = Vector3.MoveTowards(transform.position, new Vector3(jugador.transform.position.x, transform.position.y, 0), velocidadMovimiento * Time.deltaTime);
-            if (!caminandoX && transform.position.x < jugador.transform.position.x)
+            //primero se alinea en x y despues en y
+            if (transform.position.x != jugador.transform.position.x)
             {
-                caminandoX = true;
-                animator.SetTrigger("ClownSide");
-                transform.rotation = Quaternion.Euler(0, 0, 0);
+                caminandoY = false;
+                transform.position = Vector3.MoveTowards(transform.position, new Vector3(jugador.transform.position.x, transform.position.y, 0), velocidadMovimiento * Time.deltaTime);
+                if (!caminandoX && transform.position.x < jugador.transform.position.x)
+                {
+                    caminandoX = true;
+                    animator.SetTrigger("ClownSide");
+                    transform.rotation = Quaternion.Euler(0, 0, 0);
+                }
+                else if (!caminandoX && transform.position.x > jugador.transform.position.x)
+                {
+                    caminandoX = true;
+                    animator.SetTrigger("ClownSide");
+                    transform.rotation = Quaternion.Euler(0, 180, 0);
+                }
             }
-            else if (!caminandoX && transform.position.x > jugador.transform.position.x)
+
+            if (transform.position.y != jugador.transform.position.y && transform.position.x == jugador.transform.position.x)
             {
-                caminandoX = true;
-                animator.SetTrigger("ClownSide");
-                transform.rotation = Quaternion.Euler(0, 180, 0);
-            }
-        }
-        
-        if (transform.position.y != jugador.transform.position.y && transform.position.x == jugador.transform.position.x)
-        {
-            caminandoX = false;
-            transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, jugador.transform.position.y, 0), velocidadMovimiento * Time.deltaTime);
-            if (!caminandoY && transform.position.y < jugador.transform.position.y)
-            {
-                caminandoY = true;
-                animator.SetTrigger("ClownBack");
-                transform.rotation = Quaternion.Euler(0, 0, 0);
-            }
-            else if (!caminandoY && transform.position.y > jugador.transform.position.y)
-            {
-                caminandoY = true;
-                animator.SetTrigger("ClownFront");
-                transform.rotation = Quaternion.Euler(0, 180, 0);
+                caminandoX = false;
+                transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, jugador.transform.position.y, 0), velocidadMovimiento * Time.deltaTime);
+                if (!caminandoY && transform.position.y < jugador.transform.position.y)
+                {
+                    caminandoY = true;
+                    animator.SetTrigger("ClownBack");
+                    transform.rotation = Quaternion.Euler(0, 0, 0);
+                }
+                else if (!caminandoY && transform.position.y > jugador.transform.position.y)
+                {
+                    caminandoY = true;
+                    animator.SetTrigger("ClownFront");
+                    transform.rotation = Quaternion.Euler(0, 180, 0);
+                }
             }
         }
     }
@@ -66,7 +70,7 @@ public class Payaso : MonoBehaviour
     /// <param name="esquinaPantalla"></param>
     public void SetOrigen(int esquinaPantalla)
     {
-        
+
     }
 }
 
