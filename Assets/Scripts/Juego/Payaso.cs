@@ -8,7 +8,7 @@ public class Payaso : MonoBehaviour
     NavMeshAgent navMeshAgent;
     GameObject jugador;
     Animator animator;
-    bool caminandoArriba = false, caminandoAbajo = false, caminandoCostado = false;
+    bool caminandoArriba = false, caminandoAbajo = false, caminandoCostado = false, perseguirJugador = true;
     float cambiarDireccion = 0.8f;
     Vector3 esquina1, esquina2, esquina3, esquina4, objetivo;
     //las 4 esquinas de mapa para dirigirse a una de ellas cuando el jugador se rie
@@ -29,7 +29,14 @@ public class Payaso : MonoBehaviour
 
     void Update()
     {
-        navMeshAgent.SetDestination(objetivo);
+        if (perseguirJugador)
+        {
+            navMeshAgent.SetDestination(jugador.transform.position);
+        }
+        else
+        {
+            navMeshAgent.SetDestination(objetivo);
+        }
         if (Mathf.Abs(navMeshAgent.velocity.x) > cambiarDireccion && !caminandoCostado && navMeshAgent.velocity.y < cambiarDireccion)
         {
             animator.SetTrigger("ClownSide");
@@ -70,13 +77,10 @@ public class Payaso : MonoBehaviour
     {
         navMeshAgent.speed = 6;
         objetivo = CalcularEsquinaMasAlejadaDelJugador();
+        perseguirJugador = false;
         yield return new WaitForSeconds(10);
         navMeshAgent.speed = 3;
-        objetivo = jugador.transform.position;
-        /*navMeshAgent.speed = 0;
-        yield return new WaitForSeconds(UnityEngine.Random.Range(5f, 10f));
-        navMeshAgent.speed = 3;
-        yield return new WaitForSeconds(5);*/
+        perseguirJugador = true;
     }
 
     Vector3 CalcularEsquinaMasAlejadaDelJugador()

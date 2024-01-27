@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class RisaJugador : MonoBehaviour
 {
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
