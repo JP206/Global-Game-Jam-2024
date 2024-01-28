@@ -11,22 +11,22 @@ public class InputMicrofono : MonoBehaviour
 
     void Start()
     {
-        MicrophoneToAudioClip();
+        //MicrophoneToAudioClip();
     }
 
     void Update()
     {
-        if (sigueJuego && Time.timeScale == 1)
-        {
-            float loudness = GetLoudnessFromMicrophone() * loudnessSensitibity;
+        // if (sigueJuego && Time.timeScale == 1)
+        // {
+        //     float loudness = GetLoudnessFromMicrophone() * loudnessSensitibity;
 
-            if (loudness > threshold && contador >= 5)
-            {
-                GetComponent<RisaJugador>().risaJugador();
-                contador = 0;
-            }
-            contador += Time.deltaTime;
-        }
+        //     if (loudness > threshold && contador >= 5)
+        //     {
+        //         GetComponent<RisaJugador>().risaJugador();
+        //         contador = 0;
+        //     }
+        //     contador += Time.deltaTime;
+        // }
     }
 
     public void MicrophoneToAudioClip()
