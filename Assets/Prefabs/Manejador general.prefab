@@ -47,6 +47,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasJuegoTerminado: {fileID: 0}
   payaso: {fileID: 5563784591494330419, guid: 69ba2e49f495f37458eab9cd09b05f25, type: 3}
+  canvasBarraRisa: {fileID: 0}
+  carpa: {fileID: 0}
+  canvasJuegoGanado: {fileID: 0}
+  canvasCofre: {fileID: 0}
+  cofre: {fileID: 0}
+  canvasCofreAbierto: {fileID: 0}
+  canvasPausa: {fileID: 0}
+  carpaAbierta: {fileID: 21300000, guid: 79ab524d872155242b7570abf71dd06b, type: 3}
+  cofreAbiertoImagen: {fileID: 21300000, guid: 3c2605f4780113240a9fbfee98ef009b, type: 3}
 --- !u!114 &7854496547710613871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,3 +68,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6914f23eae7f1d741ac946a22f489ed2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  imagenHowToPlay: {fileID: 0}

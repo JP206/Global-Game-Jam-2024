@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class ManejadorGeneral : MonoBehaviour
 {
-    public GameObject canvasJuegoTerminado, payaso, canvasBarraRisa, carpa, canvasJuegoGanado, canvasCofre, cofre, canvasCofreAbierto;
+    public GameObject canvasJuegoTerminado, payaso, canvasBarraRisa, carpa, canvasJuegoGanado, canvasCofre, cofre, canvasCofreAbierto, canvasPausa;
     public Sprite carpaAbierta, cofreAbiertoImagen;
     bool cofreAbierto = false;
     bool animacionCofre = false;
@@ -27,6 +27,20 @@ public class ManejadorGeneral : MonoBehaviour
         {
             SceneManager.LoadScene("Menu principal");
         }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            if (canvasPausa.activeSelf)
+            {
+                canvasPausa.SetActive(false);
+                Time.timeScale = 1;
+            }
+            else
+            {
+                Time.timeScale = 0;
+                canvasPausa.SetActive(true);
+            }
+        }
     }
 
     IEnumerator SpawnPayasoDelay()
@@ -39,6 +53,7 @@ public class ManejadorGeneral : MonoBehaviour
     {
         canvasJuegoTerminado.SetActive(true);
         canvasBarraRisa.SetActive(false);
+        Camera.main.GetComponent<AudioSource>().Stop();
         GameObject jugador = GameObject.Find("Jugador");
         jugador.GetComponent<MovimientoJugador>().sigueJuego = false;
         jugador.GetComponent<RisaJugador>().sigueJuego = false;

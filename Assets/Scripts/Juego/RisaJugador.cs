@@ -22,9 +22,12 @@ public class RisaJugador : MonoBehaviour
         back
     }
     Orientacion orientacion = Orientacion.front;
+    AudioSource audioSource;
+    public AudioClip sonidoRisa;
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
         canvasRisas = transform.GetChild(0).gameObject;
         textoRisa = GameObject.Find("Barra risa").transform.GetChild(1).transform.GetChild(1).GetComponent<TextMeshProUGUI>();
@@ -54,6 +57,7 @@ public class RisaJugador : MonoBehaviour
         if (cargaRisa > 0 && !riendo)
         {
             riendo = true;
+            audioSource.PlayOneShot(sonidoRisa);
             if (payaso == null && GameObject.Find("Payaso(Clone)") != null)
             {
                 payaso = GameObject.Find("Payaso(Clone)").GetComponent<Payaso>();

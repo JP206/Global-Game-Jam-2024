@@ -6,7 +6,7 @@ public class InputMicrofono : MonoBehaviour
 {
     int sampleWindow = 64;
     AudioClip microphoneClip;
-    float loudnessSensitibity = 100, threshold = 1f, contador = 5;
+    float loudnessSensitibity = 100, threshold = 5f, contador = 5;
     public bool sigueJuego = true;
 
     void Start()

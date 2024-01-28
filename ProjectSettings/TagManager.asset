@@ -8,6 +8,7 @@ TagManager:
   - Pared
   - Cofre
   - Puerta
+  - TortaConsumible
   layers:
   - Default
   - TransparentFX

@@ -48,6 +48,11 @@ public class Torta : MonoBehaviour
                 transform.rotation = Quaternion.Euler(0, 180, 0);
             }
         }
+
+        if (transform.position.x < -120 || transform.position.x > 120 || transform.position.y < -110 || transform.position.y > 110)
+        {
+            Destroy(gameObject);
+        }
     }
     
     public void SetOrientacion(string orientacion)
@@ -65,7 +70,6 @@ public class Torta : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-
         if (col.CompareTag("Payaso"))
         {
             col.GetComponent<Payaso>().AturdirPayaso();

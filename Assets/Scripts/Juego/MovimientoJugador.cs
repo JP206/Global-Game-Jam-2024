@@ -24,6 +24,8 @@ public class MovimientoJugador : MonoBehaviour
         back
     }
     Orientacion orientacion = Orientacion.front;
+    AudioSource audioSource;
+    public AudioClip sonidoLanzarTorta, sonidoRecogerPastel, sonidoAbrirCofre, sonidoAtrapado;
 
     void Start()
     {
@@ -34,6 +36,7 @@ public class MovimientoJugador : MonoBehaviour
         textoTortas.text = cantidadTortas.ToString();
         risaJugador = GetComponent<RisaJugador>();
         manejadorGeneral = GameObject.Find("Manejador general").GetComponent<ManejadorGeneral>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -133,6 +136,7 @@ public class MovimientoJugador : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Space) && cantidadTortas > 0)
             {
+                audioSource.PlayOneShot(sonidoLanzarTorta);
                 cantidadTortas--;
                 textoTortas.text = cantidadTortas.ToString();
                 LanzarTorta();
@@ -178,6 +182,7 @@ public class MovimientoJugador : MonoBehaviour
         }
         if (col.CompareTag("Payaso"))
         {
+            audioSource.PlayOneShot(sonidoAtrapado);
             manejadorGeneral.TerminarJuego();
         }
     }
@@ -187,7 +192,16 @@ public class MovimientoJugador : MonoBehaviour
         if (col.gameObject.CompareTag("Cofre") && !cofreAbierto)
         {
             cofreAbierto = true;
+            audioSource.PlayOneShot(sonidoAbrirCofre);
             manejadorGeneral.CofreAbierto();
+        }
+
+        if (col.gameObject.CompareTag("TortaConsumible"))
+        {
+            Destroy(col.gameObject);
+            cantidadTortas++;
+            textoTortas.text = cantidadTortas.ToString();
+            audioSource.PlayOneShot(sonidoRecogerPastel);
         }
     }
 

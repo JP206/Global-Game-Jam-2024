@@ -13,9 +13,12 @@ public class Payaso : MonoBehaviour
     float cambiarDireccion = 0.8f;
     Vector3 esquina1, esquina2, esquina3, esquina4, objetivo;
     //las 4 esquinas de mapa para dirigirse a una de ellas cuando el jugador se rie
+    AudioSource audioSource;
+    public AudioClip sonidoImpactoTorta, sonidoRisaPersigue, sonidoSpawn;
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         navMeshAgent = GetComponent<NavMeshAgent>();
         navMeshAgent.updateRotation = false;
         navMeshAgent.updateUpAxis = false;
@@ -26,6 +29,7 @@ public class Payaso : MonoBehaviour
         esquina3 = GameObject.Find("Esquina3").transform.position;
         esquina4 = GameObject.Find("Esquina4").transform.position;
         animator = GetComponent<Animator>();
+        audioSource.PlayOneShot(sonidoSpawn);
     }
 
     void Update()
@@ -76,6 +80,7 @@ public class Payaso : MonoBehaviour
     public void AturdirPayaso()
     {
         StartCoroutine(aturdirPayaso());
+        audioSource.PlayOneShot(sonidoImpactoTorta);
     }
 
     IEnumerator aturdirPayaso()
@@ -109,6 +114,7 @@ public class Payaso : MonoBehaviour
             animator.SetTrigger("ClownFront");
         }
         navMeshAgent.speed = 2;
+        audioSource.PlayOneShot(sonidoRisaPersigue);
         GetComponent<CapsuleCollider2D>().enabled = true;
         puedeMover = true;
     }
@@ -125,6 +131,7 @@ public class Payaso : MonoBehaviour
         perseguirJugador = false;
         GetComponent<CapsuleCollider2D>().enabled = false;
         yield return new WaitForSeconds(10);
+        audioSource.PlayOneShot(sonidoRisaPersigue);
         GetComponent<CapsuleCollider2D>().enabled = true;
         navMeshAgent.speed = 2;
         perseguirJugador = true;
