@@ -12,6 +12,7 @@ public class RisaJugador : MonoBehaviour
     Slider slider;
     public Gradient gradient;
     Image relleno;
+    GameObject canvasRisas;
     enum Orientacion
     {
         side,
@@ -22,12 +23,13 @@ public class RisaJugador : MonoBehaviour
 
     void Start()
     {
-        slider = GameObject.Find("Barra risa").transform.GetChild(0).GetComponent<Slider>();
-        relleno = GameObject.Find("Barra risa").transform.GetChild(0).transform.GetChild(1).GetComponent<Image>();
+        slider = GameObject.Find("Barra risa").transform.GetChild(1).GetComponent<Slider>();
+        relleno = GameObject.Find("Barra risa").transform.GetChild(1).transform.GetChild(1).GetComponent<Image>();
         animator = GetComponent<Animator>();
         slider.maxValue = cargaRisa;
         slider.value = cargaRisa;
         relleno.color = gradient.Evaluate(1f);
+        canvasRisas = transform.GetChild(0).gameObject;
     }
 
     void Update()
@@ -66,6 +68,8 @@ public class RisaJugador : MonoBehaviour
 
     IEnumerator risa()
     {
+        canvasRisas.SetActive(true);
+        canvasRisas.transform.rotation = Quaternion.Euler(0, 0, 0);
         while (riendo)
         {
             if (cargaRisa > 0)
@@ -97,6 +101,7 @@ public class RisaJugador : MonoBehaviour
         {
             this.orientacion = Orientacion.back;
         }
+        canvasRisas.SetActive(false);
         riendo = false;
         StopAllCoroutines();
     }

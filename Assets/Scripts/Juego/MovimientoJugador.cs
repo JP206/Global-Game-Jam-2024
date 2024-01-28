@@ -14,6 +14,7 @@ public class MovimientoJugador : MonoBehaviour
     RisaJugador risaJugador;
     TextMeshProUGUI textoTortas;
     int cantidadTortas = 5;
+    ManejadorGeneral manejadorGeneral;
     enum Orientacion
     {
         sideDerecha,
@@ -28,9 +29,10 @@ public class MovimientoJugador : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         transform.position = GameObject.Find("Inicio").transform.position;
-        textoTortas = GameObject.Find("Barra risa").transform.GetChild(1).transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+        textoTortas = GameObject.Find("Barra risa").transform.GetChild(2).transform.GetChild(1).GetComponent<TextMeshProUGUI>();
         textoTortas.text = cantidadTortas.ToString();
         risaJugador = GetComponent<RisaJugador>();
+        manejadorGeneral = GameObject.Find("Manejador general").GetComponent<ManejadorGeneral>();
     }
 
     void Update()
@@ -139,20 +141,27 @@ public class MovimientoJugador : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.CompareTag("Final"))
+        if (col.CompareTag("Puerta"))
         {
-            GameObject.Find("Manejador general").GetComponent<FuncionesAuxiliares>().CambiarEscena("Nivel 2");
+            manejadorGeneral.SalirPuerta();
         }
         if (col.CompareTag("Payaso"))
         {
-            GameObject.Find("Manejador general").GetComponent<ManejadorGeneral>().TerminarJuego();
+            manejadorGeneral.TerminarJuego();
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.CompareTag("Cofre"))
+        {
+            manejadorGeneral.CofreAbierto();
         }
     }
 
     void LanzarTorta()
     {
         StartCoroutine(lanzarTorta());
-        
     }
 
     IEnumerator lanzarTorta()

@@ -98,7 +98,7 @@ public class Payaso : MonoBehaviour
         GetComponent<CapsuleCollider2D>().enabled = false;
         yield return new WaitForSeconds(10);
         GetComponent<CapsuleCollider2D>().enabled = true;
-        navMeshAgent.speed = 3;
+        navMeshAgent.speed = 2;
         perseguirJugador = true;
     }
 
