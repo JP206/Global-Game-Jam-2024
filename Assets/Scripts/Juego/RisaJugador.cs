@@ -11,6 +11,10 @@ public class RisaJugador : MonoBehaviour
     int cargaRisa = 5;
     GameObject canvasRisas;
     TextMeshProUGUI textoRisa;
+    public bool riendo = false; //riendo es para diferenciar entre microfono y espacio
+    public bool sigueJuego = true;
+    float contador = 5;
+    MovimientoJugador jugador;
     enum Orientacion
     {
         side,
@@ -25,20 +29,47 @@ public class RisaJugador : MonoBehaviour
         canvasRisas = transform.GetChild(0).gameObject;
         textoRisa = GameObject.Find("Barra risa").transform.GetChild(1).transform.GetChild(1).GetComponent<TextMeshProUGUI>();
         textoRisa.text = cargaRisa.ToString();
+        jugador = GetComponent<MovimientoJugador>();
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (sigueJuego)
         {
-            risaJugador();
+            if (Input.GetKeyDown(KeyCode.Space) && contador >= 5)
+            {
+                risaJugador();
+            }
+            contador += Time.deltaTime;
+
+            if (canvasRisas.activeSelf)
+            {
+                canvasRisas.transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
+
+            /*if (riendo && !jugador.moviendo) //mientras dure la risa, que se ponga la animacion si esta quieto
+            {
+                if (orientacion.Equals(Orientacion.front))
+                {
+                    animator.SetTrigger("ReirFront");
+                }
+                else if (orientacion.Equals(Orientacion.side))
+                {
+                    animator.SetTrigger("ReirSide");
+                }
+                else
+                {
+                    animator.SetTrigger("ReirBack");
+                }
+            }*/
         }
     }
 
-    void risaJugador()
+    public void risaJugador()
     {
-        if (cargaRisa > 0)
+        if (cargaRisa > 0 && !riendo)
         {
+            riendo = true;
             if (payaso == null && GameObject.Find("Payaso(Clone)") != null)
             {
                 payaso = GameObject.Find("Payaso(Clone)").GetComponent<Payaso>();
@@ -56,7 +87,6 @@ public class RisaJugador : MonoBehaviour
     IEnumerator risa()
     {
         canvasRisas.SetActive(true);
-        canvasRisas.transform.rotation = Quaternion.Euler(0, 0, 0);
         if (orientacion.Equals(Orientacion.front))
         {
             animator.SetTrigger("ReirFront");
@@ -69,26 +99,29 @@ public class RisaJugador : MonoBehaviour
         {
             animator.SetTrigger("ReirBack");
         }
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(5);
         canvasRisas.SetActive(false);
-        canvasRisas.transform.rotation = Quaternion.Euler(0, 0, 0);
-        if (orientacion.Equals(Orientacion.front))
+        /*if (!jugador.moviendo) //si se esta moviendo no cambio la animacion, sino que quede parado
         {
-            animator.SetBool("RestSide", false);
-            animator.SetTrigger("WalkFront");
-            animator.SetTrigger("RestFront");
-        }
-        else if (orientacion.Equals(Orientacion.side))
-        {
-            animator.SetTrigger("WalkSide");
-            animator.SetBool("RestSide", true);
-        }
-        else
-        {
-            animator.SetBool("RestSide", false);
-            animator.SetTrigger("WalkBack");
-            animator.SetTrigger("RestBack");
-        }
+            if (orientacion.Equals(Orientacion.front))
+            {
+                animator.SetBool("RestSide", false);
+                animator.SetTrigger("WalkFront");
+                animator.SetTrigger("RestFront");
+            }
+            else if (orientacion.Equals(Orientacion.side))
+            {
+                animator.SetTrigger("WalkSide");
+                animator.SetBool("RestSide", true);
+            }
+            else
+            {
+                animator.SetBool("RestSide", false);
+                animator.SetTrigger("WalkBack");
+                animator.SetTrigger("RestBack");
+            }
+        }*/
+        riendo = false;
     }
 
     public void SetOrientacion(string orientacion)
@@ -105,7 +138,5 @@ public class RisaJugador : MonoBehaviour
         {
             this.orientacion = Orientacion.back;
         }
-        canvasRisas.SetActive(false);
-        StopAllCoroutines();
     }
 }

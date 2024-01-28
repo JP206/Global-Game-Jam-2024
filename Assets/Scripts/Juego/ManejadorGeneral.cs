@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ManejadorGeneral : MonoBehaviour
@@ -23,7 +24,10 @@ public class ManejadorGeneral : MonoBehaviour
     {
         canvasJuegoTerminado.SetActive(true);
         canvasBarraRisa.SetActive(false);
-        GameObject.Find("Jugador").GetComponent<MovimientoJugador>().puedeMover = false;
+        GameObject jugador = GameObject.Find("Jugador");
+        jugador.GetComponent<MovimientoJugador>().sigueJuego = false;
+        jugador.GetComponent<RisaJugador>().sigueJuego = false;
+        jugador.GetComponent<InputMicrofono>().sigueJuego = false;
     }
 
     public void CofreAbierto()

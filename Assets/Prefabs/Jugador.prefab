@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4694690763209220961}
   - component: {fileID: -2821170322762683457}
   - component: {fileID: 291189178618946820}
+  - component: {fileID: 6158416213593246728}
   - component: {fileID: 8792755383766557447}
   - component: {fileID: 895987205415111732}
   m_Layer: 0
@@ -124,7 +125,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidadMovimiento: 0.1
-  puedeMover: 1
+  sigueJuego: 1
+  moviendo: 0
   torta: {fileID: 4544708460657529110, guid: 04021bb40690e3a4997108a07b9a87f8, type: 3}
 --- !u!114 &291189178618946820
 MonoBehaviour:
@@ -138,36 +140,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6fba55df7d2e8248a51d2ef1a0d07de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gradient:
-    serializedVersion: 2
-    key0: {r: 1, g: 0, b: 0, a: 1}
-    key1: {r: 1, g: 0.99126667, b: 0.18396229, a: 1}
-    key2: {r: 0.2807715, g: 1, b: 0, a: 0}
-    key3: {r: 0, g: 0, b: 0, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
-    key5: {r: 0, g: 0, b: 0, a: 0}
-    key6: {r: 0, g: 0, b: 0, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 21823
-    ctime1: 43646
-    ctime2: 65535
-    ctime3: 0
-    ctime4: 0
-    ctime5: 0
-    ctime6: 0
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 1
-    m_ColorSpace: -1
-    m_NumColorKeys: 3
-    m_NumAlphaKeys: 2
+  sigueJuego: 1
+--- !u!114 &6158416213593246728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 471662023709020304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5edcf59470dd2794590c609d7244cca4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sigueJuego: 1
 --- !u!50 &8792755383766557447
 Rigidbody2D:
   serializedVersion: 4
@@ -248,7 +234,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5881349426940223121
 RectTransform:
   m_ObjectHideFlags: 0
@@ -343,6 +329,7 @@ GameObject:
   - component: {fileID: 8762775036582048587}
   - component: {fileID: 7827123796162787301}
   - component: {fileID: 5764242359153944893}
+  - component: {fileID: 4906046398427679475}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -466,6 +453,18 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4906046398427679475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4686951564159377286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec4ba5feaba022d45a48c5fbd4279463, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6661160776996939951
 GameObject:
   m_ObjectHideFlags: 0

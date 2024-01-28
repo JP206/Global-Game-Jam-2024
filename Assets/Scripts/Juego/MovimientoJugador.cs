@@ -9,7 +9,7 @@ public class MovimientoJugador : MonoBehaviour
     [SerializeField] float velocidadMovimiento;
     Animator animator;
     bool caminando = false;
-    public bool puedeMover = true;
+    public bool sigueJuego = true;
     public GameObject torta;
     RisaJugador risaJugador;
     TextMeshProUGUI textoTortas;
@@ -37,7 +37,7 @@ public class MovimientoJugador : MonoBehaviour
 
     void Update()
     {
-        if (puedeMover)
+        if (sigueJuego)
         {
             if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
             {
@@ -51,7 +51,14 @@ public class MovimientoJugador : MonoBehaviour
             }
             else if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.RightArrow))
             {
-                animator.SetBool("RestSide", true);
+                if (risaJugador.riendo)
+                {
+                    animator.SetTrigger("ReirSide");
+                }
+                else
+                {
+                    animator.SetBool("RestSide", true);
+                }
                 caminando = false;
             }
             else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
@@ -66,7 +73,14 @@ public class MovimientoJugador : MonoBehaviour
             }
             else if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.LeftArrow))
             {
-                animator.SetTrigger("RestSide");
+                if (risaJugador.riendo)
+                {
+                    animator.SetTrigger("ReirSide");
+                }
+                else
+                {
+                    animator.SetBool("RestSide", true);
+                }
                 caminando = false;
             }
             else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
@@ -81,7 +95,15 @@ public class MovimientoJugador : MonoBehaviour
             }
             else if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow))
             {
-                animator.SetTrigger("RestBack");
+                if (risaJugador.riendo)
+                {
+                    animator.SetTrigger("ReirBack");
+                }
+                else
+                {
+                    animator.SetTrigger("RestBack");
+                }
+                
                 caminando = false;
             }
             else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
@@ -96,7 +118,15 @@ public class MovimientoJugador : MonoBehaviour
             }
             else if (Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.DownArrow))
             {
-                animator.SetTrigger("RestFront");
+                if (risaJugador.riendo)
+                {
+                    animator.SetTrigger("ReirFront");
+                }
+                else
+                {
+                    animator.SetTrigger("RestFront");
+                }
+                
                 caminando = false;
             }
 
