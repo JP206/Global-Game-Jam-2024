@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ManejadorGeneral : MonoBehaviour
 {
@@ -20,6 +21,11 @@ public class ManejadorGeneral : MonoBehaviour
         if (Input.anyKey && Time.timeScale == 0)
         {
             animacionCofre = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("Menu principal");
         }
     }
 

@@ -36,7 +36,7 @@ public class RisaJugador : MonoBehaviour
     {
         if (sigueJuego && Time.timeScale == 1)
         {
-            if (Input.GetKeyDown(KeyCode.Space) && contador >= 5)
+            if (Input.GetKeyDown(KeyCode.F) && contador >= 5)
             {
                 risaJugador();
             }

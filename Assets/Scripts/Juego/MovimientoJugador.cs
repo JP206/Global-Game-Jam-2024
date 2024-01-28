@@ -131,7 +131,7 @@ public class MovimientoJugador : MonoBehaviour
                 caminando = false;
             }
 
-            if (Input.GetKeyDown(KeyCode.F) && cantidadTortas > 0)
+            if (Input.GetKeyDown(KeyCode.Space) && cantidadTortas > 0)
             {
                 cantidadTortas--;
                 textoTortas.text = cantidadTortas.ToString();
