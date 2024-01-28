@@ -5,13 +5,22 @@ using UnityEngine;
 
 public class ManejadorGeneral : MonoBehaviour
 {
-    public GameObject canvasJuegoTerminado, payaso, canvasBarraRisa, carpa, canvasJuegoGanado, canvasCofre, cofre;
+    public GameObject canvasJuegoTerminado, payaso, canvasBarraRisa, carpa, canvasJuegoGanado, canvasCofre, cofre, canvasCofreAbierto;
     public Sprite carpaAbierta, cofreAbiertoImagen;
     bool cofreAbierto = false;
+    bool animacionCofre = false;
 
     void Start()
     {
         StartCoroutine(SpawnPayasoDelay());
+    }
+
+    void Update()
+    {
+        if (Input.anyKey && Time.timeScale == 0)
+        {
+            animacionCofre = true;
+        }
     }
 
     IEnumerator SpawnPayasoDelay()
@@ -19,7 +28,7 @@ public class ManejadorGeneral : MonoBehaviour
         yield return new WaitForSeconds(10);
         Instantiate(payaso, GameObject.Find("Inicio").transform.position, Quaternion.identity);
     }
-        
+
     public void TerminarJuego()
     {
         canvasJuegoTerminado.SetActive(true);
@@ -35,6 +44,24 @@ public class ManejadorGeneral : MonoBehaviour
         cofreAbierto = true;
         cofre.GetComponent<SpriteRenderer>().sprite = cofreAbiertoImagen;
         carpa.GetComponent<SpriteRenderer>().sprite = carpaAbierta;
+        StartCoroutine(AbrirCofreAnimacion());
+    }
+
+    IEnumerator AbrirCofreAnimacion()
+    {
+        GameObject jugador = GameObject.Find("Jugador");
+        jugador.GetComponent<Animator>().SetTrigger("Llave");
+        yield return new WaitForSeconds(0.5f);
+        GameObject.Find("Jugador").transform.GetChild(1).gameObject.SetActive(true);
+        canvasCofreAbierto.SetActive(true);
+        Time.timeScale = 0;
+        cofre.transform.GetChild(0).gameObject.SetActive(true);
+        yield return new WaitUntil(() => animacionCofre);
+        Time.timeScale = 1;
+        cofre.transform.GetChild(0).gameObject.SetActive(false);
+        canvasCofreAbierto.SetActive(false);
+        GameObject.Find("Jugador").transform.GetChild(1).gameObject.SetActive(false);
+        jugador.GetComponent<MovimientoJugador>().VolverAnimacion();
     }
 
     public void SalirPuerta()
@@ -42,6 +69,11 @@ public class ManejadorGeneral : MonoBehaviour
         if (cofreAbierto)
         {
             canvasJuegoGanado.SetActive(true);
+            GameObject jugador = GameObject.Find("Jugador");
+            GameObject.Find("Payaso(Clone)").GetComponent<Payaso>().puedeMover = false;
+            jugador.GetComponent<MovimientoJugador>().sigueJuego = false;
+            jugador.GetComponent<RisaJugador>().sigueJuego = false;
+            jugador.GetComponent<InputMicrofono>().sigueJuego = false;
         }
         else
         {

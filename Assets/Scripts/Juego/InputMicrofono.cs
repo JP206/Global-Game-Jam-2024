@@ -16,7 +16,7 @@ public class InputMicrofono : MonoBehaviour
 
     void Update()
     {
-        if (sigueJuego)
+        if (sigueJuego && Time.timeScale == 1)
         {
             float loudness = GetLoudnessFromMicrophone() * loudnessSensitibity;
 

@@ -8,7 +8,8 @@ public class Payaso : MonoBehaviour
     NavMeshAgent navMeshAgent;
     GameObject jugador;
     Animator animator;
-    bool caminandoArriba = false, caminandoAbajo = false, caminandoCostado = false, perseguirJugador = true, puedeMover = true;
+    bool caminandoArriba = false, caminandoAbajo = false, caminandoCostado = false, perseguirJugador = true;
+    public bool puedeMover = true;
     float cambiarDireccion = 0.8f;
     Vector3 esquina1, esquina2, esquina3, esquina4, objetivo;
     //las 4 esquinas de mapa para dirigirse a una de ellas cuando el jugador se rie

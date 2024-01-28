@@ -34,7 +34,7 @@ public class RisaJugador : MonoBehaviour
 
     void Update()
     {
-        if (sigueJuego)
+        if (sigueJuego && Time.timeScale == 1)
         {
             if (Input.GetKeyDown(KeyCode.Space) && contador >= 5)
             {
@@ -46,22 +46,6 @@ public class RisaJugador : MonoBehaviour
             {
                 canvasRisas.transform.rotation = Quaternion.Euler(0, 0, 0);
             }
-
-            /*if (riendo && !jugador.moviendo) //mientras dure la risa, que se ponga la animacion si esta quieto
-            {
-                if (orientacion.Equals(Orientacion.front))
-                {
-                    animator.SetTrigger("ReirFront");
-                }
-                else if (orientacion.Equals(Orientacion.side))
-                {
-                    animator.SetTrigger("ReirSide");
-                }
-                else
-                {
-                    animator.SetTrigger("ReirBack");
-                }
-            }*/
         }
     }
 
@@ -101,26 +85,6 @@ public class RisaJugador : MonoBehaviour
         }
         yield return new WaitForSeconds(5);
         canvasRisas.SetActive(false);
-        /*if (!jugador.moviendo) //si se esta moviendo no cambio la animacion, sino que quede parado
-        {
-            if (orientacion.Equals(Orientacion.front))
-            {
-                animator.SetBool("RestSide", false);
-                animator.SetTrigger("WalkFront");
-                animator.SetTrigger("RestFront");
-            }
-            else if (orientacion.Equals(Orientacion.side))
-            {
-                animator.SetTrigger("WalkSide");
-                animator.SetBool("RestSide", true);
-            }
-            else
-            {
-                animator.SetBool("RestSide", false);
-                animator.SetTrigger("WalkBack");
-                animator.SetTrigger("RestBack");
-            }
-        }*/
         riendo = false;
     }
 

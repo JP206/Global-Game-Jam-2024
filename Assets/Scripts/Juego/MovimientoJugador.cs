@@ -15,6 +15,7 @@ public class MovimientoJugador : MonoBehaviour
     TextMeshProUGUI textoTortas;
     int cantidadTortas = 5;
     ManejadorGeneral manejadorGeneral;
+    bool cofreAbierto = false;
     enum Orientacion
     {
         sideDerecha,
@@ -37,7 +38,7 @@ public class MovimientoJugador : MonoBehaviour
 
     void Update()
     {
-        if (sigueJuego)
+        if (sigueJuego && Time.timeScale == 1)
         {
             if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
             {
@@ -183,9 +184,36 @@ public class MovimientoJugador : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.CompareTag("Cofre"))
+        if (col.gameObject.CompareTag("Cofre") && !cofreAbierto)
         {
+            cofreAbierto = true;
             manejadorGeneral.CofreAbierto();
+        }
+    }
+
+    public void VolverAnimacion()
+    {
+        if (orientacion.Equals(Orientacion.front))
+        {
+            animator.SetBool("RestSide", false);
+            animator.SetTrigger("WalkFront");
+            animator.SetTrigger("RestFront");
+        }
+        else if (orientacion.Equals(Orientacion.back))
+        {
+            animator.SetBool("RestSide", false);
+            animator.SetTrigger("WalkBack");
+            animator.SetTrigger("RestBack");
+        }
+        else if (orientacion.Equals(Orientacion.sideDerecha))
+        {
+            animator.SetTrigger("WalkSide");
+            animator.SetBool("RestSide", true);
+        }
+        else if (orientacion.Equals(Orientacion.sideIzquierda))
+        {
+            animator.SetTrigger("WalkSide");
+            animator.SetBool("RestSide", true);
         }
     }
 
