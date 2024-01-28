@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 5611129733103376056}
   - component: {fileID: 4694690763209220961}
   - component: {fileID: -2821170322762683457}
+  - component: {fileID: 291189178618946820}
   - component: {fileID: 8792755383766557447}
   - component: {fileID: 895987205415111732}
-  - component: {fileID: 8446934683777308115}
   m_Layer: 0
   m_Name: Jugador
   m_TagString: Untagged
@@ -124,6 +124,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidadMovimiento: 0.1
   puedeMover: 1
+--- !u!114 &291189178618946820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 471662023709020304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6fba55df7d2e8248a51d2ef1a0d07de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 0}
 --- !u!50 &8792755383766557447
 Rigidbody2D:
   serializedVersion: 4
@@ -186,15 +199,3 @@ CapsuleCollider2D:
   m_Offset: {x: -0.017861128, y: -0.012511969}
   m_Size: {x: 1.0688128, y: 1.7554216}
   m_Direction: 0
---- !u!114 &8446934683777308115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 471662023709020304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac44cbd1d195b7047bdc20a4428ce7a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

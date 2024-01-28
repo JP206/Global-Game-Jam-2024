@@ -1,3 +1,5 @@
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MovimientoJugador : MonoBehaviour
@@ -7,12 +9,14 @@ public class MovimientoJugador : MonoBehaviour
     Animator animator;
     bool caminando = false;
     public bool puedeMover = true;
+    RisaJugador risaJugador;    
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         transform.position = GameObject.Find("Inicio").transform.position;
+        risaJugador = GetComponent<RisaJugador>();
     }
 
     void Update()
@@ -86,22 +90,26 @@ public class MovimientoJugador : MonoBehaviour
     {
         rb.MovePosition(rb.position + new Vector2(velocidadMovimiento, 0));
         transform.rotation = Quaternion.Euler(0, 0, 0);
+        risaJugador.SetOrientacion("Side");
     }
 
     void MoverIzquierda()
     {
         rb.MovePosition(rb.position - new Vector2(velocidadMovimiento, 0));
         transform.rotation = Quaternion.Euler(0, 180, 0);
+        risaJugador.SetOrientacion("Side");
     }
 
     void MoverArriba()
     {
         rb.MovePosition(rb.position + new Vector2(0, velocidadMovimiento));
+        risaJugador.SetOrientacion("Back");
     }
 
     void MoverAbajo()
     {
         rb.MovePosition(rb.position - new Vector2(0, velocidadMovimiento));
+        risaJugador.SetOrientacion("Front");
     }
 
     void OnTriggerEnter2D(Collider2D col)
