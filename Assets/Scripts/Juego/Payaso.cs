@@ -8,7 +8,7 @@ public class Payaso : MonoBehaviour
     NavMeshAgent navMeshAgent;
     GameObject jugador;
     Animator animator;
-    bool caminandoArriba = false, caminandoAbajo = false, caminandoCostado = false, perseguirJugador = true;
+    bool caminandoArriba = false, caminandoAbajo = false, caminandoCostado = false, perseguirJugador = true, puedeMover = true;
     float cambiarDireccion = 0.8f;
     Vector3 esquina1, esquina2, esquina3, esquina4, objetivo;
     //las 4 esquinas de mapa para dirigirse a una de ellas cuando el jugador se rie
@@ -29,43 +29,60 @@ public class Payaso : MonoBehaviour
 
     void Update()
     {
-        if (perseguirJugador)
+        if (puedeMover)
         {
-            navMeshAgent.SetDestination(jugador.transform.position);
-        }
-        else
-        {
-            navMeshAgent.SetDestination(objetivo);
-        }
-        if (Mathf.Abs(navMeshAgent.velocity.x) > cambiarDireccion && !caminandoCostado && navMeshAgent.velocity.y < cambiarDireccion)
-        {
-            animator.SetTrigger("ClownSide");
-            if (navMeshAgent.velocity.normalized.x < 0)
+            if (perseguirJugador)
             {
-                transform.rotation = Quaternion.Euler(0, 180, 0);
+                navMeshAgent.SetDestination(jugador.transform.position);
             }
             else
             {
-                transform.rotation = Quaternion.Euler(0, 0, 0);
+                navMeshAgent.SetDestination(objetivo);
             }
-            caminandoCostado = true;
-            caminandoArriba = false;
-            caminandoAbajo = false;
+            if (Mathf.Abs(navMeshAgent.velocity.x) > cambiarDireccion && !caminandoCostado && navMeshAgent.velocity.y < cambiarDireccion)
+            {
+                animator.SetTrigger("ClownSide");
+                if (navMeshAgent.velocity.normalized.x < 0)
+                {
+                    transform.rotation = Quaternion.Euler(0, 180, 0);
+                }
+                else
+                {
+                    transform.rotation = Quaternion.Euler(0, 0, 0);
+                }
+                caminandoCostado = true;
+                caminandoArriba = false;
+                caminandoAbajo = false;
+            }
+            else if (navMeshAgent.velocity.y > cambiarDireccion && !caminandoArriba && Mathf.Abs(navMeshAgent.velocity.x) < cambiarDireccion)
+            {
+                animator.SetTrigger("ClownBack");
+                caminandoCostado = false;
+                caminandoArriba = true;
+                caminandoAbajo = false;
+            }
+            else if (navMeshAgent.velocity.y < -cambiarDireccion && !caminandoAbajo && Mathf.Abs(navMeshAgent.velocity.x) < cambiarDireccion)
+            {
+                animator.SetTrigger("ClownFront");
+                caminandoCostado = false;
+                caminandoArriba = false;
+                caminandoAbajo = true;
+            }
         }
-        else if (navMeshAgent.velocity.y > cambiarDireccion && !caminandoArriba && Mathf.Abs(navMeshAgent.velocity.x) < cambiarDireccion)
-        {
-            animator.SetTrigger("ClownBack");
-            caminandoCostado = false;
-            caminandoArriba = true;
-            caminandoAbajo = false;
-        }
-        else if (navMeshAgent.velocity.y < -cambiarDireccion && !caminandoAbajo && Mathf.Abs(navMeshAgent.velocity.x) < cambiarDireccion)
-        {
-            animator.SetTrigger("ClownFront");
-            caminandoCostado = false;
-            caminandoArriba = false;
-            caminandoAbajo = true;
-        }
+    }
+
+    public void AturdirPayaso()
+    {
+        StartCoroutine(aturdirPayaso());
+    }
+
+    IEnumerator aturdirPayaso()
+    {
+        puedeMover = false;
+        GetComponent<CapsuleCollider2D>().enabled = false;
+        yield return new WaitForSeconds(5);
+        GetComponent<CapsuleCollider2D>().enabled = true;
+        puedeMover = true;
     }
 
     public void AhuyentarPayaso()
