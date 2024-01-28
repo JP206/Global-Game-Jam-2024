@@ -1561,6 +1561,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Navigation (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8425150102663158868, guid: cea3129a46b168a46ab27958336a488b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8986722438942289846, guid: cea3129a46b168a46ab27958336a488b, type: 3}
       propertyPath: m_TileAssetArray.Array.data[4].m_Data
       value: 

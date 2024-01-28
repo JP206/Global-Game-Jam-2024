@@ -113,7 +113,7 @@ public class Payaso : MonoBehaviour
         {
             animator.SetTrigger("ClownFront");
         }
-        navMeshAgent.speed = 2;
+        navMeshAgent.speed = 6;
         audioSource.PlayOneShot(sonidoRisaPersigue);
         GetComponent<CapsuleCollider2D>().enabled = true;
         puedeMover = true;
@@ -126,14 +126,14 @@ public class Payaso : MonoBehaviour
 
     IEnumerator ahuyentarPayaso()
     {
-        navMeshAgent.speed = 6;
+        navMeshAgent.speed = 9;
         objetivo = CalcularEsquinaMasAlejadaDelJugador();
         perseguirJugador = false;
         GetComponent<CapsuleCollider2D>().enabled = false;
         yield return new WaitForSeconds(10);
         audioSource.PlayOneShot(sonidoRisaPersigue);
         GetComponent<CapsuleCollider2D>().enabled = true;
-        navMeshAgent.speed = 2;
+        navMeshAgent.speed = 6;
         perseguirJugador = true;
     }
 
