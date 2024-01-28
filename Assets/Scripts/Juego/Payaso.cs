@@ -10,7 +10,7 @@ public class Payaso : MonoBehaviour
     Animator animator;
     bool caminandoArriba = false, caminandoAbajo = false, caminandoCostado = false, perseguirJugador = true;
     public bool puedeMover = true;
-    float cambiarDireccion = 0.8f;
+    float cambiarDireccion = 0.8f, velocidad = 4f;
     Vector3 esquina1, esquina2, esquina3, esquina4, objetivo;
     //las 4 esquinas de mapa para dirigirse a una de ellas cuando el jugador se rie
     AudioSource audioSource;
@@ -113,7 +113,7 @@ public class Payaso : MonoBehaviour
         {
             animator.SetTrigger("ClownFront");
         }
-        navMeshAgent.speed = 6;
+        navMeshAgent.speed = velocidad;
         audioSource.PlayOneShot(sonidoRisaPersigue);
         GetComponent<CapsuleCollider2D>().enabled = true;
         puedeMover = true;
@@ -126,14 +126,14 @@ public class Payaso : MonoBehaviour
 
     IEnumerator ahuyentarPayaso()
     {
-        navMeshAgent.speed = 9;
+        navMeshAgent.speed = 6;
         objetivo = CalcularEsquinaMasAlejadaDelJugador();
         perseguirJugador = false;
         GetComponent<CapsuleCollider2D>().enabled = false;
         yield return new WaitForSeconds(10);
         audioSource.PlayOneShot(sonidoRisaPersigue);
         GetComponent<CapsuleCollider2D>().enabled = true;
-        navMeshAgent.speed = 6;
+        navMeshAgent.speed = velocidad;
         perseguirJugador = true;
     }
 
