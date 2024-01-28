@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: abea1486dea70ae46bb6e137559556ea
+guid: 0439a4a434459e84a9b479a9bc6d6f2d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,70 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Torta-BAck.gif_0
+      name: payaso-tortazo-de-frente.gif_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd37fe9828bded44eb95774af68949eb
+      internalID: -1470254302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: payaso-tortazo-de-frente.gif_1
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9756dc4683b269848b492d668e0d5a0c
+      internalID: 1999560101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: payaso-tortazo-de-frente.gif_2
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 740661c89f7736d42a61661386d0cd55
+      internalID: 852660880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: payaso-tortazo-de-frente.gif_3
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c692b262372da0b43a349e6a8a8a4e81
-      internalID: 411982280
+      spriteID: 6be60095bfff8a84e89d14a764a52de3
+      internalID: -1595770363
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Torta-BAck.gif_1
+      name: payaso-tortazo-de-frente.gif_4
       rect:
         serializedVersion: 2
         x: 500
@@ -158,14 +221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a6a82c7f83365234cb8236e5222ac330
-      internalID: 1441053044
+      spriteID: 694eacb90bb3054488dd3bfe395d9306
+      internalID: -1548788011
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Torta-BAck.gif_2
+      name: payaso-tortazo-de-frente.gif_5
       rect:
         serializedVersion: 2
         x: 1000
@@ -179,14 +242,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d6f32786182da14a93b3f97a6949304
-      internalID: -760980710
+      spriteID: 2f7341ed9a235964b9f92be21dce5158
+      internalID: -1320167363
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Torta-BAck.gif_3
+      name: payaso-tortazo-de-frente.gif_6
       rect:
         serializedVersion: 2
         x: 0
@@ -200,14 +263,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce471fa71ecf01b428867643c82f254b
-      internalID: -1362606797
+      spriteID: cfbf2a560430df046bc3e81673bd907a
+      internalID: -1415086699
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Torta-BAck.gif_4
+      name: payaso-tortazo-de-frente.gif_7
       rect:
         serializedVersion: 2
         x: 500
@@ -221,8 +284,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91ef829e6f8ad11479e1d573d41f290e
-      internalID: -880595251
+      spriteID: 37273217a2ff9764bb71a2e3959166ad
+      internalID: -911207517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: payaso-tortazo-de-frente.gif_8
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 450d20af4963ab54c9b1fb9fb1386517
+      internalID: 1605744775
       vertices: []
       indices: 
       edges: []
@@ -238,11 +322,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Torta-BAck.gif_0: 411982280
-      Torta-BAck.gif_1: 1441053044
-      Torta-BAck.gif_2: -760980710
-      Torta-BAck.gif_3: -1362606797
-      Torta-BAck.gif_4: -880595251
+      payaso-tortazo-de-frente.gif_0: -1470254302
+      payaso-tortazo-de-frente.gif_1: 1999560101
+      payaso-tortazo-de-frente.gif_2: 852660880
+      payaso-tortazo-de-frente.gif_3: -1595770363
+      payaso-tortazo-de-frente.gif_4: -1548788011
+      payaso-tortazo-de-frente.gif_5: -1320167363
+      payaso-tortazo-de-frente.gif_6: -1415086699
+      payaso-tortazo-de-frente.gif_7: -911207517
+      payaso-tortazo-de-frente.gif_8: 1605744775
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

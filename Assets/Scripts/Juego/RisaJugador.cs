@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,12 +8,9 @@ public class RisaJugador : MonoBehaviour
 {
     Payaso payaso = null;
     Animator animator;
-    int cargaRisa = 100;
-    bool riendo = false;
-    Slider slider;
-    public Gradient gradient;
-    Image relleno;
+    int cargaRisa = 5;
     GameObject canvasRisas;
+    TextMeshProUGUI textoRisa;
     enum Orientacion
     {
         side,
@@ -23,13 +21,10 @@ public class RisaJugador : MonoBehaviour
 
     void Start()
     {
-        slider = GameObject.Find("Barra risa").transform.GetChild(1).GetComponent<Slider>();
-        relleno = GameObject.Find("Barra risa").transform.GetChild(1).transform.GetChild(1).GetComponent<Image>();
         animator = GetComponent<Animator>();
-        slider.maxValue = cargaRisa;
-        slider.value = cargaRisa;
-        relleno.color = gradient.Evaluate(1f);
         canvasRisas = transform.GetChild(0).gameObject;
+        textoRisa = GameObject.Find("Barra risa").transform.GetChild(1).transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+        textoRisa.text = cargaRisa.ToString();
     }
 
     void Update()
@@ -42,26 +37,18 @@ public class RisaJugador : MonoBehaviour
 
     void risaJugador()
     {
-        if (payaso == null && GameObject.Find("Payaso(Clone)") != null)
+        if (cargaRisa > 0)
         {
-            payaso = GameObject.Find("Payaso(Clone)").GetComponent<Payaso>();
-        }
-        if (payaso != null)
-        {
-            payaso.AhuyentarPayaso();
-            if (orientacion.Equals(Orientacion.front))
+            if (payaso == null && GameObject.Find("Payaso(Clone)") != null)
             {
-                animator.SetTrigger("ReirFront");
+                payaso = GameObject.Find("Payaso(Clone)").GetComponent<Payaso>();
             }
-            else if (orientacion.Equals(Orientacion.side))
+            if (payaso != null)
             {
-                animator.SetTrigger("ReirSide");
+                payaso.AhuyentarPayaso();
             }
-            else
-            {
-                animator.SetTrigger("ReirBack");
-            }
-            riendo = true;
+            cargaRisa -= 1;
+            textoRisa.text = cargaRisa.ToString();
             StartCoroutine(risa());
         }
     }
@@ -70,20 +57,37 @@ public class RisaJugador : MonoBehaviour
     {
         canvasRisas.SetActive(true);
         canvasRisas.transform.rotation = Quaternion.Euler(0, 0, 0);
-        while (riendo)
+        if (orientacion.Equals(Orientacion.front))
         {
-            if (cargaRisa > 0)
-            {
-                cargaRisa -= 5;
-                slider.value = cargaRisa;
-                relleno.color = gradient.Evaluate(slider.normalizedValue);
-                if (cargaRisa <= 0)
-                {
-                    break;
-                }
-                yield return new WaitForSeconds(1);
-            }
-            yield return null;
+            animator.SetTrigger("ReirFront");
+        }
+        else if (orientacion.Equals(Orientacion.side))
+        {
+            animator.SetTrigger("ReirSide");
+        }
+        else
+        {
+            animator.SetTrigger("ReirBack");
+        }
+        yield return new WaitForSeconds(2);
+        canvasRisas.SetActive(false);
+        canvasRisas.transform.rotation = Quaternion.Euler(0, 0, 0);
+        if (orientacion.Equals(Orientacion.front))
+        {
+            animator.SetBool("RestSide", false);
+            animator.SetTrigger("WalkFront");
+            animator.SetTrigger("RestFront");
+        }
+        else if (orientacion.Equals(Orientacion.side))
+        {
+            animator.SetTrigger("WalkSide");
+            animator.SetBool("RestSide", true);
+        }
+        else
+        {
+            animator.SetBool("RestSide", false);
+            animator.SetTrigger("WalkBack");
+            animator.SetTrigger("RestBack");
         }
     }
 
@@ -102,7 +106,6 @@ public class RisaJugador : MonoBehaviour
             this.orientacion = Orientacion.back;
         }
         canvasRisas.SetActive(false);
-        riendo = false;
         StopAllCoroutines();
     }
 }

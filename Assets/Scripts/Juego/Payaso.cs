@@ -60,6 +60,7 @@ public class Payaso : MonoBehaviour
                 caminandoCostado = false;
                 caminandoArriba = true;
                 caminandoAbajo = false;
+
             }
             else if (navMeshAgent.velocity.y < -cambiarDireccion && !caminandoAbajo && Mathf.Abs(navMeshAgent.velocity.x) < cambiarDireccion)
             {
@@ -78,9 +79,35 @@ public class Payaso : MonoBehaviour
 
     IEnumerator aturdirPayaso()
     {
+        if (caminandoCostado)
+        {
+            animator.SetTrigger("TortaSide");
+        }
+        else if (caminandoArriba)
+        {
+            animator.SetTrigger("TortaBack");
+        }
+        else if (caminandoAbajo)
+        {
+            animator.SetTrigger("TortaFront");
+        }
         puedeMover = false;
+        navMeshAgent.speed = 0;
         GetComponent<CapsuleCollider2D>().enabled = false;
         yield return new WaitForSeconds(5);
+        if (caminandoCostado)
+        {
+            animator.SetTrigger("ClownSide");
+        }
+        else if (caminandoArriba)
+        {
+            animator.SetTrigger("ClownBack");
+        }
+        else if (caminandoAbajo)
+        {
+            animator.SetTrigger("ClownFront");
+        }
+        navMeshAgent.speed = 2;
         GetComponent<CapsuleCollider2D>().enabled = true;
         puedeMover = true;
     }

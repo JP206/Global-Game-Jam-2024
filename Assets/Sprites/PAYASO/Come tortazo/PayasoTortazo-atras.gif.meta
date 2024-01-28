@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: abea1486dea70ae46bb6e137559556ea
+guid: cdadf9e8d4169e6439f25f55d0ab200b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,91 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Torta-BAck.gif_0
+      name: PayasoTortazo-atras_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 045851da6d2eb6445b9af436bb4c9f7e
+      internalID: 1624887572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PayasoTortazo-atras_1
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 886bbf3a93b2df743b46c995b1f90435
+      internalID: 882087885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PayasoTortazo-atras_2
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16f2d0f7d1e0954438f0f1ef8b6af9b5
+      internalID: 662650031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PayasoTortazo-atras_3
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9b268053b778ca439b2f89d0b031f5b
+      internalID: 62701997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PayasoTortazo-atras_4
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c692b262372da0b43a349e6a8a8a4e81
-      internalID: 411982280
+      spriteID: 8934081ae38b92d46ad26c68a2c57f82
+      internalID: -1826139806
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Torta-BAck.gif_1
+      name: PayasoTortazo-atras_5
       rect:
         serializedVersion: 2
         x: 500
@@ -158,14 +242,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a6a82c7f83365234cb8236e5222ac330
-      internalID: 1441053044
+      spriteID: e3870db39343a1d48b65a29b50b3e21b
+      internalID: 1751556138
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Torta-BAck.gif_2
+      name: PayasoTortazo-atras_6
       rect:
         serializedVersion: 2
         x: 1000
@@ -179,14 +263,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d6f32786182da14a93b3f97a6949304
-      internalID: -760980710
+      spriteID: aa93133152d3a9f42a910f35accfd358
+      internalID: -706612753
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Torta-BAck.gif_3
+      name: PayasoTortazo-atras_7
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba07a4f3f3771d44d9f373fa84d277f3
+      internalID: 1288100129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PayasoTortazo-atras_8
       rect:
         serializedVersion: 2
         x: 0
@@ -200,14 +305,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce471fa71ecf01b428867643c82f254b
-      internalID: -1362606797
+      spriteID: 9e2524c3baf868c4480e2d4c8648f0cf
+      internalID: 1135389842
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Torta-BAck.gif_4
+      name: PayasoTortazo-atras_9
       rect:
         serializedVersion: 2
         x: 500
@@ -221,8 +326,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91ef829e6f8ad11479e1d573d41f290e
-      internalID: -880595251
+      spriteID: 6ee937f31aca8924086a1a110ab709aa
+      internalID: 1522347719
       vertices: []
       indices: 
       edges: []
@@ -238,11 +343,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Torta-BAck.gif_0: 411982280
-      Torta-BAck.gif_1: 1441053044
-      Torta-BAck.gif_2: -760980710
-      Torta-BAck.gif_3: -1362606797
-      Torta-BAck.gif_4: -880595251
+      PayasoTortazo-atras_0: 1624887572
+      PayasoTortazo-atras_1: 882087885
+      PayasoTortazo-atras_2: 662650031
+      PayasoTortazo-atras_3: 62701997
+      PayasoTortazo-atras_4: -1826139806
+      PayasoTortazo-atras_5: 1751556138
+      PayasoTortazo-atras_6: -706612753
+      PayasoTortazo-atras_7: 1288100129
+      PayasoTortazo-atras_8: 1135389842
+      PayasoTortazo-atras_9: 1522347719
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
