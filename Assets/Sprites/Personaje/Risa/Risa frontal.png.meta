@@ -127,7 +127,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 2000
+        y: 1000
         width: 500
         height: 500
       alignment: 0
@@ -148,7 +148,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 500
-        y: 2000
+        y: 1000
         width: 500
         height: 500
       alignment: 0
@@ -169,7 +169,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1000
-        y: 2000
+        y: 1000
         width: 500
         height: 500
       alignment: 0
@@ -190,7 +190,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1500
-        y: 2000
+        y: 1000
         width: 500
         height: 500
       alignment: 0
@@ -210,8 +210,8 @@ TextureImporter:
       name: Risa frontal_4
       rect:
         serializedVersion: 2
-        x: 2000
-        y: 2000
+        x: 0
+        y: 500
         width: 500
         height: 500
       alignment: 0
@@ -231,8 +231,8 @@ TextureImporter:
       name: Risa frontal_5
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1500
+        x: 500
+        y: 500
         width: 500
         height: 500
       alignment: 0
@@ -252,8 +252,8 @@ TextureImporter:
       name: Risa frontal_6
       rect:
         serializedVersion: 2
-        x: 500
-        y: 1500
+        x: 1000
+        y: 500
         width: 500
         height: 500
       alignment: 0
@@ -273,8 +273,8 @@ TextureImporter:
       name: Risa frontal_7
       rect:
         serializedVersion: 2
-        x: 1000
-        y: 1500
+        x: 1500
+        y: 500
         width: 500
         height: 500
       alignment: 0
@@ -294,8 +294,8 @@ TextureImporter:
       name: Risa frontal_8
       rect:
         serializedVersion: 2
-        x: 1500
-        y: 1500
+        x: 0
+        y: 0
         width: 500
         height: 500
       alignment: 0
@@ -315,8 +315,8 @@ TextureImporter:
       name: Risa frontal_9
       rect:
         serializedVersion: 2
-        x: 2000
-        y: 1500
+        x: 500
+        y: 0
         width: 500
         height: 500
       alignment: 0
@@ -328,132 +328,6 @@ TextureImporter:
       bones: []
       spriteID: 22e33da11179f1649bd3024321d12ca7
       internalID: 2068706956
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Risa frontal_10
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1000
-        width: 500
-        height: 500
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 336dee0b5f9456540befc94775fdfe34
-      internalID: -190412267
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Risa frontal_11
-      rect:
-        serializedVersion: 2
-        x: 500
-        y: 1000
-        width: 500
-        height: 500
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7040bb1510cf7df4ab9fd02fde42d04c
-      internalID: 999387493
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Risa frontal_12
-      rect:
-        serializedVersion: 2
-        x: 1000
-        y: 1000
-        width: 500
-        height: 500
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4afa92035f43f70459a4af34c2b5e88d
-      internalID: 768380404
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Risa frontal_13
-      rect:
-        serializedVersion: 2
-        x: 1500
-        y: 1000
-        width: 500
-        height: 500
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d367e7c5d89b99048b9c1f05e67caec4
-      internalID: -1217830942
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Risa frontal_14
-      rect:
-        serializedVersion: 2
-        x: 2000
-        y: 1000
-        width: 500
-        height: 500
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 118fdd2daf0698842bd0933860a25b10
-      internalID: 42480691
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Risa frontal_15
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 500
-        width: 500
-        height: 500
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d9017e58d9658bb41b6a45bba1655a13
-      internalID: 513649531
       vertices: []
       indices: 
       edges: []
@@ -471,12 +345,6 @@ TextureImporter:
     nameFileIdTable:
       Risa frontal_0: 1218333843
       Risa frontal_1: -676908838
-      Risa frontal_10: -190412267
-      Risa frontal_11: 999387493
-      Risa frontal_12: 768380404
-      Risa frontal_13: -1217830942
-      Risa frontal_14: 42480691
-      Risa frontal_15: 513649531
       Risa frontal_2: -98162589
       Risa frontal_3: 1136685868
       Risa frontal_4: -711179349

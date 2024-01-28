@@ -127,7 +127,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 2000
+        y: 1000
         width: 500
         height: 500
       alignment: 0
@@ -148,7 +148,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 500
-        y: 2000
+        y: 1000
         width: 500
         height: 500
       alignment: 0
@@ -169,7 +169,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1000
-        y: 2000
+        y: 1000
         width: 500
         height: 500
       alignment: 0
@@ -190,7 +190,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1500
-        y: 2000
+        y: 1000
         width: 500
         height: 500
       alignment: 0
@@ -210,8 +210,8 @@ TextureImporter:
       name: Risa-espalda.gif_4
       rect:
         serializedVersion: 2
-        x: 2000
-        y: 2000
+        x: 0
+        y: 500
         width: 500
         height: 500
       alignment: 0
@@ -231,8 +231,8 @@ TextureImporter:
       name: Risa-espalda.gif_5
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1500
+        x: 500
+        y: 500
         width: 500
         height: 500
       alignment: 0
@@ -252,8 +252,8 @@ TextureImporter:
       name: Risa-espalda.gif_6
       rect:
         serializedVersion: 2
-        x: 500
-        y: 1500
+        x: 1000
+        y: 500
         width: 500
         height: 500
       alignment: 0
@@ -273,8 +273,8 @@ TextureImporter:
       name: Risa-espalda.gif_7
       rect:
         serializedVersion: 2
-        x: 1000
-        y: 1500
+        x: 1500
+        y: 500
         width: 500
         height: 500
       alignment: 0
@@ -294,8 +294,8 @@ TextureImporter:
       name: Risa-espalda.gif_8
       rect:
         serializedVersion: 2
-        x: 1500
-        y: 1500
+        x: 0
+        y: 0
         width: 500
         height: 500
       alignment: 0
@@ -307,6 +307,27 @@ TextureImporter:
       bones: []
       spriteID: 48ac687fc83ad084890c7c09020a2323
       internalID: 1311184480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Risa-espalda.gif_9
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3727382f96a3c094ab34538d0ffb3925
+      internalID: -2091023076
       vertices: []
       indices: 
       edges: []
@@ -331,6 +352,7 @@ TextureImporter:
       Risa-espalda.gif_6: 495073476
       Risa-espalda.gif_7: 1062914588
       Risa-espalda.gif_8: 1311184480
+      Risa-espalda.gif_9: -2091023076
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

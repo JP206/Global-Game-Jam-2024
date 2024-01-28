@@ -14,6 +14,8 @@ public class ManejadorGeneral : MonoBehaviour
     void Start()
     {
         StartCoroutine(SpawnPayasoDelay());
+        cofre.SetActive(false);
+        StartCoroutine(AparecerCofre());
     }
 
     void Update()
@@ -41,6 +43,12 @@ public class ManejadorGeneral : MonoBehaviour
                 canvasPausa.SetActive(true);
             }
         }
+    }
+
+    IEnumerator AparecerCofre()
+    {
+        yield return new WaitForSeconds(60);
+        cofre.SetActive(true);
     }
 
     IEnumerator SpawnPayasoDelay()

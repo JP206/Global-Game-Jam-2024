@@ -127,7 +127,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 2000
+        y: 1000
         width: 500
         height: 500
       alignment: 0
@@ -148,7 +148,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 500
-        y: 2000
+        y: 1000
         width: 500
         height: 500
       alignment: 0
@@ -169,7 +169,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1000
-        y: 2000
+        y: 1000
         width: 500
         height: 500
       alignment: 0
@@ -190,7 +190,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1500
-        y: 2000
+        y: 1000
         width: 500
         height: 500
       alignment: 0
@@ -210,8 +210,8 @@ TextureImporter:
       name: Risa-perfil.gif_4
       rect:
         serializedVersion: 2
-        x: 2000
-        y: 2000
+        x: 0
+        y: 500
         width: 500
         height: 500
       alignment: 0
@@ -231,8 +231,8 @@ TextureImporter:
       name: Risa-perfil.gif_5
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1500
+        x: 500
+        y: 500
         width: 500
         height: 500
       alignment: 0
@@ -252,8 +252,8 @@ TextureImporter:
       name: Risa-perfil.gif_6
       rect:
         serializedVersion: 2
-        x: 500
-        y: 1500
+        x: 1000
+        y: 500
         width: 500
         height: 500
       alignment: 0
@@ -273,8 +273,8 @@ TextureImporter:
       name: Risa-perfil.gif_7
       rect:
         serializedVersion: 2
-        x: 1000
-        y: 1500
+        x: 1500
+        y: 500
         width: 500
         height: 500
       alignment: 0
@@ -286,6 +286,48 @@ TextureImporter:
       bones: []
       spriteID: 7bd7455306a5a1b49a3d25814c348d14
       internalID: -658298870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Risa-perfil.gif_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44f67bc2dfc67b84fbb0bd8a2a63c4af
+      internalID: 296868576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Risa-perfil.gif_9
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f528dec32202fb419273c7b218500b3
+      internalID: 101082244
       vertices: []
       indices: 
       edges: []
@@ -309,6 +351,8 @@ TextureImporter:
       Risa-perfil.gif_5: 1409507093
       Risa-perfil.gif_6: -1193145297
       Risa-perfil.gif_7: -658298870
+      Risa-perfil.gif_8: 296868576
+      Risa-perfil.gif_9: 101082244
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
