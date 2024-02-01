@@ -2,30 +2,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InputMicrofono : MonoBehaviour
+public class InputMicrofonoMenuPrincipal : MonoBehaviour
 {
     int sampleWindow = 64;
     AudioClip microphoneClip;
     float loudnessSensitibity = 100, threshold = 6f, contador = 5;
-    public bool sigueJuego = true;
+    AudioSource audioSource;
+    public AudioClip sonidoRisa;
+    Animator animator;
+    GameObject canvasRisas;
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+        animator = GetComponent<Animator>();
+        canvasRisas = transform.GetChild(0).gameObject;
         MicrophoneToAudioClip();
     }
 
     void Update()
     {
-        if (sigueJuego && Time.timeScale == 1)
-        {
-            float loudness = GetLoudnessFromMicrophone() * loudnessSensitibity;
+        float loudness = GetLoudnessFromMicrophone() * loudnessSensitibity;
 
-            if (loudness > threshold && contador >= 5)
-            {
-                GetComponent<RisaJugador>().risaJugador();
-                contador = 0;
-            }
-            contador += Time.deltaTime;
+        if ((loudness > threshold && contador >= 5) || Input.GetKeyDown(KeyCode.F))
+        {
+            risaJugador();
+            contador = 0;
+        }
+        contador += Time.deltaTime;
+
+        if (canvasRisas.activeSelf)
+        {
+            canvasRisas.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
     }
 
@@ -56,5 +64,20 @@ public class InputMicrofono : MonoBehaviour
             totalLoudness += Mathf.Abs(waveData[i]);
         }
         return totalLoudness / sampleWindow;
+    }
+
+    void risaJugador()
+    {
+        audioSource.PlayOneShot(sonidoRisa);
+        StartCoroutine(risa());
+    }
+
+    IEnumerator risa()
+    {
+        canvasRisas.SetActive(true);
+        animator.SetTrigger("ReirFront");
+        yield return new WaitForSeconds(5);
+        canvasRisas.SetActive(false);
+        animator.SetTrigger("RestFront");
     }
 }

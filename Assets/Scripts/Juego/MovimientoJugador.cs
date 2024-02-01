@@ -26,6 +26,7 @@ public class MovimientoJugador : MonoBehaviour
     Orientacion orientacion = Orientacion.front;
     AudioSource audioSource;
     public AudioClip sonidoLanzarTorta, sonidoRecogerPastel, sonidoAbrirCofre, sonidoAtrapado;
+    bool moviendoVertical = false, moviendoHorizontal = false;
 
     void Start()
     {
@@ -43,8 +44,9 @@ public class MovimientoJugador : MonoBehaviour
     {
         if (sigueJuego && Time.timeScale == 1)
         {
-            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+            if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && !moviendoVertical)
             {
+                moviendoHorizontal = true;
                 MoverDerecha();
                 if (!caminando)
                 {
@@ -55,6 +57,7 @@ public class MovimientoJugador : MonoBehaviour
             }
             else if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.RightArrow))
             {
+                moviendoHorizontal = false;
                 if (risaJugador.riendo)
                 {
                     animator.SetTrigger("ReirSide");
@@ -65,8 +68,9 @@ public class MovimientoJugador : MonoBehaviour
                 }
                 caminando = false;
             }
-            else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+            else if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) && !moviendoVertical)
             {
+                moviendoHorizontal = true;
                 MoverIzquierda();
                 if (!caminando)
                 {
@@ -77,6 +81,7 @@ public class MovimientoJugador : MonoBehaviour
             }
             else if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.LeftArrow))
             {
+                moviendoHorizontal = false;
                 if (risaJugador.riendo)
                 {
                     animator.SetTrigger("ReirSide");
@@ -87,8 +92,9 @@ public class MovimientoJugador : MonoBehaviour
                 }
                 caminando = false;
             }
-            else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+            else if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))  && !moviendoHorizontal)
             {
+                moviendoVertical = true;
                 MoverArriba();
                 if (!caminando)
                 {
@@ -99,6 +105,7 @@ public class MovimientoJugador : MonoBehaviour
             }
             else if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow))
             {
+                moviendoVertical = false;
                 if (risaJugador.riendo)
                 {
                     animator.SetTrigger("ReirBack");
@@ -110,8 +117,9 @@ public class MovimientoJugador : MonoBehaviour
                 
                 caminando = false;
             }
-            else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+            else if ((Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))  && !moviendoHorizontal)
             {
+                moviendoVertical = true;
                 MoverAbajo();
                 if (!caminando)
                 {
@@ -122,6 +130,7 @@ public class MovimientoJugador : MonoBehaviour
             }
             else if (Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.DownArrow))
             {
+                moviendoVertical = false;
                 if (risaJugador.riendo)
                 {
                     animator.SetTrigger("ReirFront");

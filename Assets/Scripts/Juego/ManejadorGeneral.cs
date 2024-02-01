@@ -20,7 +20,7 @@ public class ManejadorGeneral : MonoBehaviour
 
     void Update()
     {
-        if (Input.anyKey && Time.timeScale == 0)
+        if (Input.GetKeyDown(KeyCode.Return) && Time.timeScale == 0)
         {
             animacionCofre = true;
         }
@@ -80,7 +80,7 @@ public class ManejadorGeneral : MonoBehaviour
     {
         GameObject jugador = GameObject.Find("Jugador");
         jugador.GetComponent<Animator>().SetTrigger("Llave");
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.4f);
         GameObject.Find("Jugador").transform.GetChild(1).gameObject.SetActive(true);
         canvasCofreAbierto.SetActive(true);
         Time.timeScale = 0;

@@ -75,6 +75,10 @@ public class Payaso : MonoBehaviour
                 caminandoAbajo = true;
             }
         }
+        else
+        {
+            navMeshAgent.SetDestination(esquina1);
+        }
     }
 
     public void AturdirPayaso()
